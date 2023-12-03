@@ -1,5 +1,5 @@
 # ZenithRealEstate
-ELCOME TO ZENITH
+WELCOME TO ZENITH
 
     Enter Password
 
