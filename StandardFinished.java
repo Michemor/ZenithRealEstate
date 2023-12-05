@@ -3,8 +3,6 @@ public class StandardFinished extends StandardRoom{
 
     private double additional_charge =15000.00;
     private double total_cost=0;
-
-    private double discount;
     //constructor
     StandardFinished(){
         super();
@@ -25,7 +23,7 @@ public class StandardFinished extends StandardRoom{
         //taking care of balconies costs
         base_price+=balcony_cost;
         //taking care of the discount
-        System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price*=(1-discount)));
+        System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price -= computeDiscount()));
         base_price = total_cost;
         return total_cost;    
     }
