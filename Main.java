@@ -21,7 +21,8 @@ public class Main {
       int finish_idx;
       String finish; 
       JOptionPane error = new JOptionPane();
-      double total_cost;
+      double finishprice = 0;
+      double total_cost; 
 
 
       error.showMessageDialog(error, "WELCOME TO ZENITH REAL ESTATE", "ZENITH REAL ESTATE", JOptionPane.INFORMATION_MESSAGE, logo);
@@ -33,38 +34,9 @@ public class Main {
       Customer buyer = new Customer();
       buyer.getInfo();
      
-      
+       GenerateInvoice invoice = new GenerateInvoice(buyer.getFirstName(), buyer.getLastName(), buyer.getPhone());
      
-    /**  // FIRST OPTION : ROOM DIMENSIONS
-
-       error.showMessageDialog(error, "Enter the Room Dimensions", "ZENITH REAL ESTATE", JOptionPane.PLAIN_MESSAGE);
-        System.out.println("\n");
   
-        do{
-          String lengthString =  error.showInputDialog(error, "Enter the length of the room", "ROOM DIMENSIONS", JOptionPane.PLAIN_MESSAGE);
-        try{
-          length = Double.parseDouble(lengthString);
-        }
-        catch(InputMismatchException e){
-        error.showMessageDialog(error, e, "Input Mismatch Exception", JOptionPane.OK_CANCEL_OPTION, errorIcon);
-//in.next();
-        }
-        String widthString = error.showInputDialog(error, "Enter the Width: ", "ROOM DIMENSIONS", JOptionPane.ERROR_MESSAGE);
-        try{
-          width = Double.parseDouble(widthString);
-        }
-        catch(InputMismatchException e){
-        error.showMessageDialog(error, e, "Input Mismatch Exception", JOptionPane.OK_CANCEL_OPTION, errorIcon);
-        //in.next();
-        }
-        System.out.println("\n");
-        if(length < width){
-        }
-        }while(length < 12 || width < 11);
-      
-    // CATCH ERRORS   
-      
-      */
       // SELECT THE TYPE OF FINISH FOR THE HOUSE
       System.out.println("\n");
       finish_idx =  error.showOptionDialog(error, "Select the type of finish: ", "TYPE OF ROOM FINISH", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, finish_type, finish_type[0]);  
@@ -72,24 +44,31 @@ public class Main {
 
       if (finish_idx == 0)
       {
-          //initialize BASIC child class
+        finish = "Basic";
+         BasicFinished room = new BasicFinished();
+         total_cost = room.FinishPrice();
+         invoice.printReceipt(room.getLength(), room.getWidth(), room.getArea(), finish, finishprice, room.getBedrooms(), room.getBalconies(), total_cost, room.computeDiscount());
+
+
       }
       else if (finish_idx == 1)
       {
         finish = "Standard";
+        finishprice = 15000;
         // initialize STANDARD CLASS
         StandardFinished room = new StandardFinished();
         //room.roomDetails();
-        room.FinishPrice();
+        total_cost = room.FinishPrice();
+        invoice.printReceipt(room.getLength(), room.getWidth(), room.getArea(), finish, finishprice, room.getBedrooms(), room.getBalconies(), total_cost, room.computeDiscount());
        
       }
       else if (finish_idx == 2)
       {
         finish = "Elegant";
           ElegantRoom room = new ElegantRoom();
-
-          room.FinishPrice();
-          
+         total_cost =  room.FinishPrice();
+          finishprice = 15000;
+          invoice.printReceipt(room.getLength(), room.getWidth(), room.getArea(), finish, finishprice, room.getBedrooms(), room.getBalconies(), total_cost, room.computeDiscount());
 
 
       }
@@ -99,7 +78,6 @@ public class Main {
       else{
        error.showMessageDialog(error, "Invalid Input", "Input Error", JOptionPane.ERROR_MESSAGE);
       }    
-       in.close();
-    }
-   
+  
+    }   
 }

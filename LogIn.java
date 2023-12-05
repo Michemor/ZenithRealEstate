@@ -23,6 +23,6 @@ public class LogIn{
               user_name = login.showInputDialog(login, "Enter username: ", "LOGIN", JOptionPane.INFORMATION_MESSAGE); 
             newPassword= login.showInputDialog(login, "Enter password: ", "LOGIN", JOptionPane.INFORMATION_MESSAGE);
             }
-          login.showMessageDialog(login, "SUCCESSFUL LOGIN", "WELCOME", 0);
+          login.showMessageDialog(login, "SUCCESSFUL LOGIN", "WELCOME", JOptionPane.PLAIN_MESSAGE);
         }
     }

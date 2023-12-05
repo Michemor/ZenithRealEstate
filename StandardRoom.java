@@ -19,15 +19,23 @@ abstract public class StandardRoom {
     public StandardRoom(){
         
     }
+    public double getLength()
+    {
+        return this.room_length;
+    }
+    public double getWidth()
+    {
+        return this.room_width;
+    }
     //implemeted getter methods
     public double getArea(){
-        return base_area;
+        return (this.room_area);
     }
     public int getBedrooms(){
-        return bedrooms;
+        return this.bedrooms;
     }
     public int getBalconies(){
-        return balcony_number;
+        return this.balcony_number;
     }
 
     public void roomDetails(){
@@ -56,9 +64,9 @@ abstract public class StandardRoom {
         }while(room_length<12 || room_width<11 || room_length<room_width || room_length == room_width);
     }
     public double compute_area() {
-        room_area = room_length * room_width;
-        //System.out.println("room area = " + room_area);
-        return room_area;
+        this.room_area = room_length * room_width;
+        
+        return this.room_area;
     }
     public int setBedrooms(){
         do{
@@ -79,6 +87,7 @@ abstract public class StandardRoom {
          input.showMessageDialog(input, "Enter the number of balconies", null, JOptionPane.INFORMATION_MESSAGE);
         try{
         String bals = input.showInputDialog(input, "BALCONIES\nMaximum number of balconies is three:\n ", null,JOptionPane.INFORMATION_MESSAGE);
+        balcony_number = Integer.parseInt(bals);
         }
         catch(InputMismatchException e){
             input.showMessageDialog(input, e, null, JOptionPane.ERROR_MESSAGE);
@@ -88,19 +97,18 @@ abstract public class StandardRoom {
         System.out.println("\n");
         if (balcony_number==1){
             balcony_cost=30000;
-            input.showMessageDialog(input, "Balcony Cost\n", "BALCONY COST", JOptionPane.INFORMATION_MESSAGE)
+            input.showMessageDialog(input, "Balcony Cost\n", "BALCONY COST", JOptionPane.INFORMATION_MESSAGE);
         }
-        else if(balcony_number>1){
-            balcony_cost+=30000+((balcony_number-1)*27500);
-            System.out.println("\t balcony price = Ksh"+balcony_cost);
+        else if(balcony_number > 1){
+            balcony_cost+=30000+((balcony_number-1) * 27500);
+            //System.out.println("\t balcony price = Ksh"+balcony_cost);
         }
         return balcony_cost;
     }
     public double computeDiscount() {
-        if(bedrooms>1){
-            discount=0.02*base_price;
+        if(bedrooms > 1){
+            discount= 0.02 * base_price;
         }
         return discount;
     }
-
 }

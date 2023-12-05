@@ -20,7 +20,7 @@ public class BasicFinished extends StandardRoom{
         
         base_price+=balcony_cost;
         
-        System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price -= computeDiscount()));
+        //System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price -= computeDiscount()));
         base_price = total_cost;
         return total_cost;
     }
