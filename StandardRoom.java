@@ -17,7 +17,7 @@ abstract public class StandardRoom {
         
     }
     //implemeted getter methods
-     public double getArea(){
+    public double getArea(){
         return base_area;
     }
     public int getBedrooms(){
