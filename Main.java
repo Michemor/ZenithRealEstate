@@ -25,11 +25,11 @@ public class Main {
 
       error.showMessageDialog(error, "WELCOME TO ZENITH REAL ESTATE", "ZENITH REAL ESTATE", JOptionPane.INFORMATION_MESSAGE, logo);
       // USER - LOGIN
-<<<<<<< HEAD
+
       System.out.println("\n*****************WELCOME TO ZEITH REAL ESTATE*****************");       
       
 
-=======
+
       LogIn user_login = new LogIn();
       user_login.checkPassword();
 
@@ -69,8 +69,7 @@ public class Main {
       
     // CATCH ERRORS   
       
-      
->>>>>>> origin
+    
       // SELECT THE TYPE OF FINISH FOR THE HOUSE
       System.out.println("\n");
       System.out.println("Select  the type of House finish: (1,2,3,0) ");
@@ -86,18 +85,8 @@ public class Main {
       {
         finish = "Standard";
         // initialize STANDARD CLASS
-<<<<<<< HEAD
         StandardFinished room = new StandardFinished();
         room.FinishPrice();
-=======
-        StandardFinished user_room = new StandardFinished(length, width, finish_idx);
-        //room.roomDetails();
-        user_room.compute_area();
-        user_room.computeDiscount();
-        user_room.setBalconies();
-        user_room.FinishPrice();
-       
->>>>>>> origin
       }
       else if (finish_idx == 3)
       {
