@@ -30,12 +30,13 @@ public class ElegantRoom extends StandardRoom{
         //taking care of extra room area charges inclusive extra rooms
         if (compute_area()>132){
             base_price += (compute_area()-132)*7000;
-            System.out.println("total cost = Ksh." + base_price);
+            
         }
         //taking care of balconies costs
         base_price+=balcony_cost;
         //taking care of the discount
-        System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price*=(1-discount)));
+        System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price -= computeDiscount()));
+
         base_price = total_cost;
         return total_cost;
     }

@@ -54,7 +54,7 @@ abstract public class StandardRoom {
         }while(room_length<12 || room_width<11 || room_length<room_width || room_length == room_width);
     }
     public double compute_area() {
-        room_area=room_length*room_width;
+        room_area = room_length * room_width;
         //System.out.println("room area = " + room_area);
         return room_area;
     }
