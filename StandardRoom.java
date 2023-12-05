@@ -71,7 +71,7 @@ abstract public class StandardRoom {
         while(bedrooms>5);
         return bedrooms;
     }
-    public int setBalconies(){
+    public double setBalconies(){
         do{
             System.out.print("\n \t Number of Balconies(atmost 3) >>> ");
         try{
@@ -91,7 +91,7 @@ abstract public class StandardRoom {
             balcony_cost+=30000+((balcony_number-1)*27500);
             System.out.println("\t balcony price = Ksh"+balcony_cost);
         }
-        return balcony_number;
+        return balcony_cost;
     }
     public double computeDiscount() {
         if(bedrooms>1){
