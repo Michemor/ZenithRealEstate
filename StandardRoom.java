@@ -1,5 +1,8 @@
 import java.util.*;
+
+import javax.swing.JOptionPane;
 abstract public class StandardRoom {
+    JOptionPane  input = new JOptionPane();
     Scanner in = new Scanner(System.in);
     double room_length;
     double room_width;
@@ -28,27 +31,24 @@ abstract public class StandardRoom {
     }
 
     public void roomDetails(){
-        System.out.println("\n Enter the length and width for each room in your house: ");
-  
+        inpu.showMessageDialog(input, "Enter Room Dimensions", "ROOM DIMENSIONS", JOptionPane.INFORMATION_MESSAGE); 
         do{
-          System.out.print("\t Length >> ");
+       String lengthString = input.showMessageDialog(input, "Length: ", "ROOM DIMENSIONS", JOptionPane.INFORMATION_MESSAGE);
         try{
-          room_length = in.nextDouble();
+          room_length = Double.parseDouble(lengthString);  
         }
         catch(InputMismatchException e){
-        System.out.println("Invalid input please enter a number for length.");
-        in.next();
+        input.showMessageDialog(input, e, "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        System.out.print("\t Width >> ");
-        try{
-          room_width = in.nextDouble();
+               try{
+           String widthString = input.showInputDialog(input, "Width: ", "ROOM DIMENSIONS",JOptionPane.INFORMATION_MESSAGE);
+           width = Double.parseDouble(widthString);
         }
         catch(InputMismatchException e){
-        System.out.println("Invalid input please enter a number for width.");
-        in.next();
+        input.showMessageDialog(input, e, "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         if (room_length<room_width){
-            System.out.println("\t INVALID Length CANNOT be LESS than Width");
+            input.showMessageDialog(input, "Length cannot be less than the width", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         System.out.println("\n");
         }while(room_length<12 || room_width<11 || room_length<room_width || room_length == room_width);
@@ -60,12 +60,13 @@ abstract public class StandardRoom {
     }
     public int setBedrooms(){
         do{
-        System.out.print("\n \t Enter number of bedrooms >>>");
+       input.showMessageDialog(input, "Enter the number of rooms: ", "NUMBER OF ROOMS", JOptionPane.INFORMATION_MESSAGE);
         try{
-            bedrooms=in.nextInt();
+           String rooms = input.showInputDialog(input, "Rooms: ", "NUMBER OF ROOMS", JOptionPane.INFORMATION_MESSAGE);
+           bedrooms = Integer.parseInt(rooms);
         }
         catch(InputMismatchException e){
-            System.out.println("Invalid input");
+        input.showMessageDialog(input, e, null, JOptionPane.ERROR_MESSAGE);
         }
         }
         while(bedrooms>5);
@@ -73,12 +74,12 @@ abstract public class StandardRoom {
     }
     public double setBalconies(){
         do{
-            System.out.print("\n \t Number of Balconies(atmost 3) >>> ");
+         input.showMessageDialog(input, "Enter the number of balconies", null, JOptionPane.INFORMATION_MESSAGE);
         try{
-            balcony_number=in.nextInt();
+        String bals = input.showInputDialog(input, "BALCONIES\nMaximum number of balconies is three:() ", null,JOptionPane.INFORMATION_MESSAGE);
         }
         catch(InputMismatchException e){
-            System.out.println("Invalid Input");
+            input.showMessageDialog(input, e, null, JOptionPane.ERROR_MESSAGE);
         }
 
         }while(balcony_number>3);
