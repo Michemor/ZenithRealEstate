@@ -16,37 +16,8 @@ public class Main {
 
       // USER - LOGIN
       System.out.println("\n*****************WELCOME TO ZEITH REAL ESTATE*****************");       
-      // FIRST OPTION : ROOM DIMENSIONS
+      
 
-        System.out.println("Enter the length and width for each room in your house: ");
-        System.out.println("\n");
-  
-        do{
-          System.out.print("\t Length >> ");
-        try{
-          length = in.nextDouble();
-        }
-        catch(InputMismatchException e){
-        System.out.println("Invalid input please enter a number for length.");
-        in.next();
-        }
-        System.out.print("\t Width >> ");
-        try{
-          width = in.nextDouble();
-        }
-        catch(InputMismatchException e){
-        System.out.println("Invalid input please enter a number for width.");
-        in.next();
-        }
-        System.out.println("\n");
-        if(length<width){
-          System.out.println("Length cannot be greater than width.");
-        }
-        }while(length<12 || width<11 || length<width || length == width);
-      
-    // CATCH ERRORS   
-      
-      
       // SELECT THE TYPE OF FINISH FOR THE HOUSE
       System.out.println("\n");
       System.out.println("Select  the type of House finish you want: ");
@@ -61,13 +32,8 @@ public class Main {
       else if (finish_idx == 2)
       {
         // initialize STANDARD CLASS
-        StandardFinished room = new StandardFinished(length, width, finish_idx);
-        //room.roomDetails();
-        room.compute_area();
-        room.computeDiscount();
-        room.setBalconies();
+        StandardFinished room = new StandardFinished();
         room.FinishPrice();
-
       }
       else if (finish_idx == 3)
       {
@@ -89,6 +55,11 @@ public class Main {
       }
     
        in.close();
+
+      // FIRST OPTION : ROOM DIMENSIONS
+       
+    // CATCH ERRORS    
+      
     }
    
 }
