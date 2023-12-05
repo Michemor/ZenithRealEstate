@@ -35,9 +35,9 @@ public class Main {
      
       
      
-      // FIRST OPTION : ROOM DIMENSIONS
+    /**  // FIRST OPTION : ROOM DIMENSIONS
 
-       error.showInputDialog(error, "Enter the Room Dimensions", "ZENITH REAL ESTATE", JOptionPane.PLAIN_MESSAGE);
+       error.showMessageDialog(error, "Enter the Room Dimensions", "ZENITH REAL ESTATE", JOptionPane.PLAIN_MESSAGE);
         System.out.println("\n");
   
         do{
@@ -59,13 +59,12 @@ public class Main {
         }
         System.out.println("\n");
         if(length < width){
-         error.showMessageDialog(error, "Length cannot be greater than width.", "Input error", JOptionPane.ERROR_MESSAGE);
         }
         }while(length < 12 || width < 11);
       
     // CATCH ERRORS   
       
-      
+      */
       // SELECT THE TYPE OF FINISH FOR THE HOUSE
       System.out.println("\n");
       finish_idx =  error.showOptionDialog(error, "Select the type of finish: ", "TYPE OF ROOM FINISH", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, finish_type, finish_type[0]);  
@@ -79,24 +78,17 @@ public class Main {
       {
         finish = "Standard";
         // initialize STANDARD CLASS
-        StandardFinished user_room = new StandardFinished(length, width, finish_idx);
+        StandardFinished room = new StandardFinished();
         //room.roomDetails();
-        user_room.compute_area();
-        user_room.computeDiscount();
-        user_room.setBalconies();
-        user_room.FinishPrice();
+        room.FinishPrice();
        
       }
       else if (finish_idx == 2)
       {
         finish = "Elegant";
-          ElegantRoom room = new ElegantRoom(length, width, finish_idx);
+          ElegantRoom room = new ElegantRoom();
 
-            room.compute_area();
-            room.FinishPrice();
-            room.setBalconies();
-            room.setRoomNumber();
-          
+          room.FinishPrice();
           
 
 

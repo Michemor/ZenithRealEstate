@@ -31,18 +31,20 @@ abstract public class StandardRoom {
     }
 
     public void roomDetails(){
-        inpu.showMessageDialog(input, "Enter Room Dimensions", "ROOM DIMENSIONS", JOptionPane.INFORMATION_MESSAGE); 
+       
         do{
-       String lengthString = input.showMessageDialog(input, "Length: ", "ROOM DIMENSIONS", JOptionPane.INFORMATION_MESSAGE);
+             input.showMessageDialog(input, "Enter Room Dimensions", "ROOM DIMENSIONS", JOptionPane.INFORMATION_MESSAGE); 
+       String lengthString = input.showInputDialog(input, "Length: ", "ROOM DIMENSIONS", JOptionPane.INFORMATION_MESSAGE);
         try{
           room_length = Double.parseDouble(lengthString);  
         }
         catch(InputMismatchException e){
         input.showMessageDialog(input, e, "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        String widthString = input.showInputDialog(input, "Width: ", "ROOM DIMENSIONS", JOptionPane.INFORMATION_MESSAGE);
                try{
-           String widthString = input.showInputDialog(input, "Width: ", "ROOM DIMENSIONS",JOptionPane.INFORMATION_MESSAGE);
-           width = Double.parseDouble(widthString);
+          
+           room_width = Double.parseDouble(widthString);
         }
         catch(InputMismatchException e){
         input.showMessageDialog(input, e, "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -76,7 +78,7 @@ abstract public class StandardRoom {
         do{
          input.showMessageDialog(input, "Enter the number of balconies", null, JOptionPane.INFORMATION_MESSAGE);
         try{
-        String bals = input.showInputDialog(input, "BALCONIES\nMaximum number of balconies is three:() ", null,JOptionPane.INFORMATION_MESSAGE);
+        String bals = input.showInputDialog(input, "BALCONIES\nMaximum number of balconies is three:\n ", null,JOptionPane.INFORMATION_MESSAGE);
         }
         catch(InputMismatchException e){
             input.showMessageDialog(input, e, null, JOptionPane.ERROR_MESSAGE);
@@ -86,7 +88,7 @@ abstract public class StandardRoom {
         System.out.println("\n");
         if (balcony_number==1){
             balcony_cost=30000;
-            System.out.println("\t balcony price = Ksh"+balcony_cost);
+            input.showMessageDialog(input, "Balcony Cost\n", "BALCONY COST", JOptionPane.INFORMATION_MESSAGE)
         }
         else if(balcony_number>1){
             balcony_cost+=30000+((balcony_number-1)*27500);
@@ -100,4 +102,5 @@ abstract public class StandardRoom {
         }
         return discount;
     }
+
 }

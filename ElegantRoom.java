@@ -40,7 +40,7 @@ public class ElegantRoom extends StandardRoom{
         base_price = total_cost;
         return total_cost;
     }
-// takes input from user of the number of balconies and computes price
+/
 
 }
 
