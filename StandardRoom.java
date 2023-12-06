@@ -35,6 +35,7 @@ abstract public class StandardRoom {
         return this.bedrooms;
     }
     public int getBalconies(){
+
         return this.balcony_number;
     }
 
@@ -87,20 +88,20 @@ abstract public class StandardRoom {
          input.showMessageDialog(input, "Enter the number of balconies", null, JOptionPane.INFORMATION_MESSAGE);
         try{
         String bals = input.showInputDialog(input, "BALCONIES\nMaximum number of balconies is three:\n ", null,JOptionPane.INFORMATION_MESSAGE);
-        balcony_number = Integer.parseInt(bals);
+        this.balcony_number = Integer.parseInt(bals);
         }
         catch(InputMismatchException e){
             input.showMessageDialog(input, e, null, JOptionPane.ERROR_MESSAGE);
         }
 
-        }while(balcony_number>3);
-        System.out.println("\n");
-        if (balcony_number==1){
+        }while(balcony_number > 3 || balcony_number < 0);
+       // System.out.println("\n");
+        if (this.balcony_number == 1){
             balcony_cost=30000;
             input.showMessageDialog(input, "Balcony Cost\n", "BALCONY COST", JOptionPane.INFORMATION_MESSAGE);
         }
-        else if(balcony_number > 1){
-            balcony_cost+=30000+((balcony_number-1) * 27500);
+        else if(this.balcony_number > 1){
+            balcony_cost += 30000+((balcony_number - 1) * 27500);
             //System.out.println("\t balcony price = Ksh"+balcony_cost);
         }
         return balcony_cost;

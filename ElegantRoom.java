@@ -10,7 +10,7 @@ public class ElegantRoom extends StandardRoom{
 
     private double additional_charge = 22500;
     private double discount = 1;
-    private double total_cost = 0;
+    private double total_cost = super.base_price;
     
     //constructor for super class
     public ElegantRoom()
@@ -27,18 +27,17 @@ public class ElegantRoom extends StandardRoom{
         setBalconies();
         computeDiscount();
         // elegant finish goes for a price of 22 500
-        base_price+=additional_charge;
+       total_cost += additional_charge;
         //taking care of extra room area charges inclusive extra rooms
         if (compute_area() > 132){
-            base_price += (compute_area()-132)*7000;
-            
+            total_cost += (compute_area()-132)*7000;
         }
         //taking care of balconies costs
-        base_price+=balcony_cost;
+        base_price += balcony_cost;
         //taking care of the discount
        // System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price -= computeDiscount()));
-        this.total_cost = base_price;
-        return this.total_cost;
+        
+        return (total_cost - computeDiscount());
     }
 
 

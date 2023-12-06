@@ -29,7 +29,7 @@ public class Customer {
 
     public void displayDetails() {
         System.out.println("Names: " + firstname + " " + lastname);
-        System.out.println("Phone: +254" + phone);
+        System.out.println("Phone: " + phone);
     }
     public String getFirstName()
     {

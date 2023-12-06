@@ -11,34 +11,35 @@ import javax.swing.JOptionPane;
 public class Main {
 
   public static void main(String[] args) {
-    ImageIcon success = new ImageIcon("./check.png");
-    ImageIcon errorIcon = new ImageIcon("./cross.png");
-    ImageIcon logo = new ImageIcon("./house.png");
+    ImageIcon success = new ImageIcon("C:\\Users\\MJ\\Downloads\\check.png");
+    ImageIcon errorIcon = new ImageIcon("C:\\Users\\MJ\\Downloads\\cross.png");
+    ImageIcon logo = new ImageIcon("C:\\Users\\MJ\\Downloads\\house.png");
       Scanner in = new Scanner(System.in); 
       double length = 0;
       double width = 0;
-      String[] finish_type = {"Basic(0)", "Standard(Sh.15000)", "Elegant(Shs.22500)", "exit"}; 
+      String[] finish_type = {"Basic(Sh 0)", "Standard(Sh.15000)", "Elegant(Shs.22500)", "exit"}; 
       int finish_idx;
       String finish; 
       JOptionPane error = new JOptionPane();
       double finishprice = 0;
       double total_cost; 
-
+     
 
       error.showMessageDialog(error, "WELCOME TO ZENITH REAL ESTATE", "ZENITH REAL ESTATE", JOptionPane.INFORMATION_MESSAGE, logo);
       // USER - LOGIN
       LogIn user_login = new LogIn();
       user_login.checkPassword();
 
-      //TAKE IN USER INPUT
+      //TAKE IN CUSTOMER CREDENTIALS
       Customer buyer = new Customer();
       buyer.getInfo();
-     
-       GenerateInvoice invoice = new GenerateInvoice(buyer.getFirstName(), buyer.getLastName(), buyer.getPhone());
+      GenerateInvoice invoice = new GenerateInvoice(buyer.getFirstName(), buyer.getLastName(), buyer.getPhone());
+
+       
      
   
       // SELECT THE TYPE OF FINISH FOR THE HOUSE
-      System.out.println("\n");
+      //System.out.println("\n");
       finish_idx =  error.showOptionDialog(error, "Select the type of finish: ", "TYPE OF ROOM FINISH", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, finish_type, finish_type[0]);  
       
 
@@ -46,10 +47,8 @@ public class Main {
       {
         finish = "Basic";
          BasicFinished room = new BasicFinished();
-         total_cost = room.FinishPrice();
+        total_cost = room.FinishPrice();
          invoice.printReceipt(room.getLength(), room.getWidth(), room.getArea(), finish, finishprice, room.getBedrooms(), room.getBalconies(), total_cost, room.computeDiscount());
-
-
       }
       else if (finish_idx == 1)
       {
@@ -66,7 +65,7 @@ public class Main {
       {
         finish = "Elegant";
           ElegantRoom room = new ElegantRoom();
-         total_cost =  room.FinishPrice();
+          total_cost =  room.FinishPrice();
           finishprice = 15000;
           invoice.printReceipt(room.getLength(), room.getWidth(), room.getArea(), finish, finishprice, room.getBedrooms(), room.getBalconies(), total_cost, room.computeDiscount());
 
