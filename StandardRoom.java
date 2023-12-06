@@ -98,17 +98,17 @@ abstract public class StandardRoom {
        // System.out.println("\n");
         if (this.balcony_number == 1){
             balcony_cost=30000;
-            input.showMessageDialog(input, "Balcony Cost\n", "BALCONY COST", JOptionPane.INFORMATION_MESSAGE);
+            //input.showMessageDialog(input, "Balcony Cost\n", "BALCONY COST", JOptionPane.INFORMATION_MESSAGE);
         }
         else if(this.balcony_number > 1){
-            balcony_cost += 30000+((balcony_number - 1) * 27500);
+            balcony_cost += 30000 + ((balcony_number - 1) * 27500);
             //System.out.println("\t balcony price = Ksh"+balcony_cost);
         }
         return balcony_cost;
     }
     public double computeDiscount() {
         if(bedrooms > 1){
-            discount= 0.02 * base_price;
+            discount= 0.2 * base_price;
         }
         return discount;
     }

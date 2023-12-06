@@ -1,6 +1,6 @@
 
 public class BasicFinished extends StandardRoom{
-    double total_cost = super.base_price;
+    
     //private double total_cost=0;
     
     BasicFinished(){
@@ -15,15 +15,15 @@ public class BasicFinished extends StandardRoom{
         computeDiscount();
 
         if (compute_area() > 132){
-            total_cost += (compute_area()-132) * 7000;  
+            base_price += (compute_area()-132) * 7000;  
         }
         
-      total_cost += balcony_cost;
+      base_price += balcony_cost;
         
-      
-        System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price -= computeDiscount()));
+
+       // System.out.println("\n After a discount of Ksh." + computeDiscount() +" , The total price for your house is Ksh." + (base_price -= computeDiscount()));
         
-        return (total_cost -= computeDiscount());
+        return (base_price - computeDiscount());
     }
 
 }

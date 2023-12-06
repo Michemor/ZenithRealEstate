@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -21,10 +22,33 @@ public class Customer {
     }
 
     public void getInfo() {
-       firstname = cust_cred.showInputDialog(cust_cred, "Enter firstname: ", "REGISTER", JOptionPane.INFORMATION_MESSAGE);
-     lastname = cust_cred.showInputDialog(cust_cred, "Enter lastname: ", "REGISTER", JOptionPane.INFORMATION_MESSAGE);
-        String phoneString = cust_cred.showInputDialog(cust_cred, "Enter Phone Number", "REGISTER", JOptionPane.INFORMATION_MESSAGE);
-    phone = Integer.parseInt(phoneString);
+        try{
+            firstname = cust_cred.showInputDialog(cust_cred, "Enter firstname: ", "REGISTER", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(InputMismatchException e)
+        {
+            cust_cred.showMessageDialog(cust_cred, "Incorrect input", "ERROR IN INPUT", JOptionPane.ERROR_MESSAGE);
+            this.getInfo();
+        }
+        try
+        {
+        lastname = cust_cred.showInputDialog(cust_cred, "Enter lastname: ", "REGISTER", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(InputMismatchException e)
+        {
+             cust_cred.showMessageDialog(cust_cred, "Incorrect Input", "ERROR IN INPUT", JOptionPane.ERROR_MESSAGE);
+             this.getInfo();
+        }
+        try {
+              String phoneString = cust_cred.showInputDialog(cust_cred, "Enter Phone Number", "REGISTER", JOptionPane.INFORMATION_MESSAGE);
+              phone = Integer.parseInt(phoneString);
+        } catch (Exception e) {
+            // TODO: handle exception
+             cust_cred.showMessageDialog(cust_cred, "Incorrect Input", "ERROR IN INPUT", JOptionPane.ERROR_MESSAGE);
+              this.getInfo();
+        }
+        
+       
     }
 
     public void displayDetails() {

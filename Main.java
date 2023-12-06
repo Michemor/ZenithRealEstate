@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class Main {
 
   public static void main(String[] args) {
+    
     ImageIcon success = new ImageIcon("C:\\Users\\MJ\\Downloads\\check.png");
     ImageIcon errorIcon = new ImageIcon("C:\\Users\\MJ\\Downloads\\cross.png");
     ImageIcon logo = new ImageIcon("C:\\Users\\MJ\\Downloads\\house.png");
@@ -24,7 +25,8 @@ public class Main {
       double finishprice = 0;
       double total_cost; 
      
-
+do
+{
       error.showMessageDialog(error, "WELCOME TO ZENITH REAL ESTATE", "ZENITH REAL ESTATE", JOptionPane.INFORMATION_MESSAGE, logo);
       // USER - LOGIN
       LogIn user_login = new LogIn();
@@ -77,6 +79,7 @@ public class Main {
       else{
        error.showMessageDialog(error, "Invalid Input", "Input Error", JOptionPane.ERROR_MESSAGE);
       }    
-  
-    }   
+    } while (true);
+    }  
+   
 }
