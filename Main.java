@@ -10,14 +10,9 @@ import javax.swing.JOptionPane;
 //import ZenithRealEstate.InvoiceGenerate;
 public class Main {
 
-  public static void main(String[] args) {
-    
-    ImageIcon success = new ImageIcon("C:\\Users\\MJ\\Downloads\\check.png");
-    ImageIcon errorIcon = new ImageIcon("C:\\Users\\MJ\\Downloads\\cross.png");
-    ImageIcon logo = new ImageIcon("C:\\Users\\MJ\\Downloads\\house.png");
-      Scanner in = new Scanner(System.in); 
-      double length = 0;
-      double width = 0;
+  public static void main(String[] args) 
+  {
+     
       String[] finish_type = {"Basic(Sh 0)", "Standard(Sh.15000)", "Elegant(Shs.22500)", "exit"}; 
       int finish_idx;
       String finish; 
@@ -27,7 +22,7 @@ public class Main {
      
 do
 {
-      error.showMessageDialog(error, "WELCOME TO ZENITH REAL ESTATE", "ZENITH REAL ESTATE", JOptionPane.INFORMATION_MESSAGE, logo);
+      error.showMessageDialog(error, "WELCOME TO ZENITH REAL ESTATE", "ZENITH REAL ESTATE", JOptionPane.INFORMATION_MESSAGE);
       // USER - LOGIN
       LogIn user_login = new LogIn();
       user_login.checkPassword();
@@ -68,7 +63,7 @@ do
         finish = "Elegant";
           ElegantRoom room = new ElegantRoom();
           total_cost =  room.FinishPrice();
-          finishprice = 15000;
+          finishprice = 22500;
           invoice.printReceipt(room.getLength(), room.getWidth(), room.getArea(), finish, finishprice, room.getBedrooms(), room.getBalconies(), total_cost, room.computeDiscount());
 
 

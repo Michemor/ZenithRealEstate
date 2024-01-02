@@ -15,15 +15,15 @@ public class StandardFinished extends StandardRoom{
         compute_area();
         setBalconies();
         computeDiscount();
-        base_price += additional_charge;
+        super.base_price += additional_charge;
         //taking care of extra room area charges inclusive extra rooms
         if (compute_area()>132){
-            base_price += (compute_area()-132)*7000;
+            super.base_price += (compute_area()-132)*7000;
         }
         //taking care of balconies costs
-        base_price += balcony_cost;
+        super.base_price += balcony_cost;
         //taking care of the discount      
-        return (base_price -= computeDiscount());    
+        return (super.base_price -= computeDiscount());    
     }
 
 }

@@ -108,7 +108,7 @@ abstract public class StandardRoom {
     }
     public double computeDiscount() {
         if(bedrooms > 1){
-            discount= 0.2 * base_price;
+            discount = 0.02 * base_price;
         }
         return discount;
     }

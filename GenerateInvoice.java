@@ -30,6 +30,6 @@ public class GenerateInvoice{
     System.out.println("\n===========================================================================================================\n");
     System.out.println("\t\t\t\tCustomer Name:\t\t " + cust_firstname + " " +cust_lastname);
     System.out.println("\t\t\t\tPhone Number:\t\t0" + phone );
-    System.out.println("\t\t\t\n******ZENITH REAL ESTATE******\n\t\t\tHONORED TO SERVE YOU********");
+    System.out.println("\t\t\t\n******ZENITH REAL ESTATE******\n\t\t\tHONORED TO SERVE YOU********\n\n");
 }
 }
